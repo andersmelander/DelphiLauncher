@@ -25,7 +25,10 @@ if (-not($ini.Contains('environment'))) {
   throw '[environment] section missing from environment.ini'
 }
 
-$RootKey = 'DelphiLauncher'
+$RootKey = $ini['environment']['rootkey'] # 'DelphiLauncher'
+if ([String]::IsNullOrWhiteSpace($RootKey)) {
+  $RootKey = 'DelphiLauncher'
+}
 $Project = $ini['environment']['project'] # 'FooBar 5.13'
 $Revision = $ini['environment']['revision'] # '1'
 $Version = $ini['environment']['delphi'] # '20.0'
@@ -152,4 +155,4 @@ foreach ($Folder in $PackageFolders.Values) {
 
 # Launch Delphi, using the session tree
 $BDS = Get-ItemProperty -Path $Session
-& $($BDS.App) -r$RootKey
+& $($BDS.App) "-r$RootKey"

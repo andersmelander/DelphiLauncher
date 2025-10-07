@@ -1,0 +1,10 @@
+3rd party libraries:
+* DevExpress 2024.1.3.0
+* madExcept 5.1.4 (madCollection 2.8.13.0)
+
+FooBar libraries:
+* FooGoo: Awesome GUI stuff
+* FooFoo: Stuff we found on the internet
+
+Other:
+* amDataAutoScriptDesignTime: SQL script collection framework
